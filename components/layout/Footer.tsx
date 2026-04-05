@@ -42,9 +42,9 @@ export function Footer() {
 
           {/* Links */}
           <div>
-            <h4 className="font-display text-sm font-bold uppercase tracking-widest text-text-muted">
+            <h3 className="font-display text-sm font-bold uppercase tracking-widest text-text-muted">
               Navigation
-            </h4>
+            </h3>
             <ul className="mt-4 space-y-3">
               {NAV_LINKS.map((link) => (
                 <li key={link.href}>
@@ -61,9 +61,9 @@ export function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="font-display text-sm font-bold uppercase tracking-widest text-text-muted">
+            <h3 className="font-display text-sm font-bold uppercase tracking-widest text-text-muted">
               Services
-            </h4>
+            </h3>
             <ul className="mt-4 space-y-3">
               {SERVICES.slice(0, 6).map((s) => (
                 <li key={s.title}>
@@ -80,9 +80,9 @@ export function Footer() {
 
           {/* Contact info */}
           <div>
-            <h4 className="font-display text-sm font-bold uppercase tracking-widest text-text-muted">
+            <h3 className="font-display text-sm font-bold uppercase tracking-widest text-text-muted">
               Get In Touch
-            </h4>
+            </h3>
             <ul className="mt-4 space-y-4">
               <li className="flex items-start gap-3 text-sm text-text-secondary">
                 <Mail className="mt-0.5 h-4 w-4 shrink-0 text-accent-blue" aria-hidden="true" />
@@ -104,9 +104,9 @@ export function Footer() {
 
             {/* Newsletter */}
             <div className="mt-8">
-              <h4 className="font-display text-sm font-bold uppercase tracking-widest text-text-muted">
+              <h3 className="font-display text-sm font-bold uppercase tracking-widest text-text-muted">
                 Newsletter
-              </h4>
+              </h3>
               <div className="mt-3 flex gap-2">
                 <input
                   type="email"
