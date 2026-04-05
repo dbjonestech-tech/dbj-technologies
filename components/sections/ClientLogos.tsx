@@ -1,22 +1,33 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { CLIENT_LOGOS } from "@/lib/constants";
+import { useEffect, useRef, useState } from "react";
 
 export function ClientLogos() {
   const doubled = [...CLIENT_LOGOS, ...CLIENT_LOGOS];
+  const labelRef = useRef<HTMLParagraphElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = labelRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setVisible(true); obs.disconnect(); } },
+      { threshold: 0.1 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
 
   return (
     <section className="relative min-h-[200px] py-20 overflow-hidden border-y border-white/[0.04]">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="text-center text-xs font-mono uppercase tracking-[0.2em] text-text-muted mb-10"
+        <p
+          ref={labelRef}
+          className={`text-center text-xs font-mono uppercase tracking-[0.2em] text-text-muted mb-10 transition-opacity duration-700 ${visible ? "opacity-100" : "opacity-0"}`}
         >
           Trusted by forward-thinking companies
-        </motion.p>
+        </p>
       </div>
 
       {/* Marquee rows */}
