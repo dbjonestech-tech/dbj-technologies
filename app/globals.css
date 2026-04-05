@@ -1,0 +1,204 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── CUSTOM PROPERTIES ───────────────────────────── */
+:root {
+  --bg-primary: #06060a;
+  --bg-secondary: #0c0c14;
+  --accent-blue: #60a5fa;
+  --accent-cyan: #22d3ee;
+  --accent-violet: #a78bfa;
+}
+
+/* ─── BASE RESET ──────────────────────────────────── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: #f0f0f5;
+  overflow-x: hidden;
+}
+
+/* ─── SCROLLBAR ───────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(96, 165, 250, 0.3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(96, 165, 250, 0.6);
+}
+
+/* ─── SELECTION ───────────────────────────────────── */
+::selection {
+  background: rgba(96, 165, 250, 0.3);
+  color: #fff;
+}
+
+/* ─── GRAIN OVERLAY ───────────────────────────────── */
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 128px 128px;
+}
+
+/* ─── GLASS CARD ──────────────────────────────────── */
+@layer components {
+  .glass-card {
+    @apply relative rounded-2xl border border-white/[0.06] bg-white/[0.02] backdrop-blur-xl;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .glass-card-hover {
+    @apply glass-card transition-all duration-500;
+  }
+  .glass-card-hover:hover {
+    @apply border-white/[0.12] bg-white/[0.04];
+    box-shadow:
+      0 4px 30px rgba(0, 0, 0, 0.3),
+      0 0 40px rgba(59, 130, 246, 0.08);
+    transform: translateY(-4px);
+  }
+
+  .gradient-border {
+    position: relative;
+    border: none;
+  }
+  .gradient-border::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(96, 165, 250, 0.4), rgba(34, 211, 238, 0.2), rgba(167, 139, 250, 0.4));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #60a5fa, #22d3ee, #a78bfa);
+  }
+
+  .btn-primary {
+    @apply relative inline-flex items-center gap-2 rounded-full px-8 py-3.5 font-body font-semibold text-white transition-all duration-300;
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    box-shadow: 0 0 20px rgba(96, 165, 250, 0.3);
+  }
+  .btn-primary:hover {
+    box-shadow: 0 0 40px rgba(96, 165, 250, 0.5);
+    transform: translateY(-2px);
+  }
+
+  .btn-outline {
+    @apply relative inline-flex items-center gap-2 rounded-full px-8 py-3.5 font-body font-semibold text-white transition-all duration-300;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.03);
+  }
+  .btn-outline:hover {
+    border-color: rgba(59, 130, 246, 0.5);
+    background: rgba(59, 130, 246, 0.08);
+    transform: translateY(-2px);
+  }
+}
+
+/* ─── DOT GRID BACKGROUND ─────────────────────────── */
+.dot-grid {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* ─── GLOW EFFECTS ────────────────────────────────── */
+.glow-spot {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+/* ─── CUSTOM CURSOR (desktop only) ────────────────── */
+@media (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
+}
+
+/* ─── SKIP TO CONTENT (A11Y) ──────────────────────── */
+.skip-to-content {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10000;
+  padding: 12px 24px;
+  border-radius: 0 0 12px 12px;
+  background: #60a5fa;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: top 0.2s ease;
+}
+.skip-to-content:focus {
+  top: 0;
+  outline: none;
+}
+
+/* ─── FOCUS-VISIBLE (A11Y) ────────────────────────── */
+*:focus-visible {
+  outline: 2px solid rgba(96, 165, 250, 0.8);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid rgba(96, 165, 250, 0.8);
+  outline-offset: 2px;
+}
+
+/* Remove default focus styles when not keyboard navigating */
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ─── REDUCED MOTION ──────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
