@@ -19,16 +19,31 @@ export function ClientLogos() {
         </motion.p>
       </div>
 
-      {/* Marquee */}
-      <div className="relative">
+      {/* Marquee rows */}
+      <div className="relative flex flex-col gap-4">
         {/* Fade edges */}
         <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-bg-primary to-transparent z-10" />
         <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-bg-primary to-transparent z-10" />
 
+        {/* Row 1 — scrolls left */}
         <div className="flex animate-marquee">
           {doubled.map((name, i) => (
             <div
               key={i}
+              className="mx-8 flex shrink-0 items-center justify-center rounded-xl border border-white/[0.04] bg-white/[0.02] px-8 py-4 min-h-[60px] min-w-[160px] transition-all duration-500 hover:border-white/[0.1] hover:bg-white/[0.04] group"
+            >
+              <span className="font-display text-lg font-bold text-text-muted transition-colors duration-500 group-hover:text-white whitespace-nowrap">
+                {name}
+              </span>
+            </div>
+          ))}
+        </div>
+
+        {/* Row 2 — scrolls right (reverse) */}
+        <div className="flex animate-marquee-reverse">
+          {doubled.map((name, i) => (
+            <div
+              key={`rev-${i}`}
               className="mx-8 flex shrink-0 items-center justify-center rounded-xl border border-white/[0.04] bg-white/[0.02] px-8 py-4 min-h-[60px] min-w-[160px] transition-all duration-500 hover:border-white/[0.1] hover:bg-white/[0.04] group"
             >
               <span className="font-display text-lg font-bold text-text-muted transition-colors duration-500 group-hover:text-white whitespace-nowrap">
