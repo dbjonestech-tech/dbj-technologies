@@ -30,11 +30,11 @@ const jetbrains = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://dbjtechnologies.com"),
   title: {
-    default: "DBJ Technologies — We Build the Future",
+    default: "DBJ Technologies — Web Development Studio in Dallas, TX",
     template: "%s | DBJ Technologies",
   },
   description:
-    "Full-service web development and technology company specializing in blazing-fast websites, modern web applications, cloud infrastructure, and digital transformation.",
+    "DBJ Technologies is a web development studio in Dallas, TX. We build high-performance websites, modern web applications, and cloud infrastructure using Next.js, React, and TypeScript.",
   keywords: [
     "web development",
     "web design",
@@ -46,7 +46,6 @@ export const metadata: Metadata = {
     "cloud infrastructure",
     "devops",
     "e-commerce development",
-    "SEO services",
   ],
   authors: [{ name: "DBJ Technologies" }],
   creator: "DBJ Technologies",
@@ -55,14 +54,14 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://dbjtechnologies.com",
     siteName: "DBJ Technologies",
-    title: "DBJ Technologies — We Build the Future",
+    title: "DBJ Technologies — Web Development Studio in Dallas, TX",
     description:
-      "Full-service web development and technology company. Blazing-fast websites, modern applications, and digital transformation.",
+      "High-performance websites, modern applications, and cloud infrastructure. Built by senior engineers in Dallas, TX.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "DBJ Technologies — We Build the Future",
-    description: "Full-service web development and technology company.",
+    title: "DBJ Technologies — Web Development Studio",
+    description: "High-performance websites and applications built by senior engineers in Dallas, TX.",
   },
   robots: {
     index: true,

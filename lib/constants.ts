@@ -19,12 +19,11 @@ import {
 /* ─── SITE META ─────────────────────────────────────── */
 export const SITE = {
   name: "DBJ Technologies",
-  tagline: "We Build the Future",
+  tagline: "Engineering that ships.",
   description:
-    "DBJ Technologies is a full-service web development and technology company specializing in blazing-fast websites, modern web applications, cloud infrastructure, and digital transformation.",
+    "DBJ Technologies is a web development and technology studio based in Dallas, TX. We build high-performance websites, modern web applications, and cloud infrastructure using Next.js, React, and TypeScript.",
   url: "https://dbjtechnologies.com",
   email: "hello@dbjtechnologies.com",
-  phone: "+1 (469) 555-0147",
   address: "Dallas, TX",
 };
 
@@ -55,23 +54,21 @@ export const FOOTER_NAV_LINKS = [
 export const SUPPORT_LINKS = [
   { label: "Maintenance & Support", href: "/maintenance-support" },
   { label: "Why DBJ", href: "/why-dbj" },
-  { label: "FAQ", href: "/faq" },
 ] as const;
 
 /* ─── SOCIAL LINKS ──────────────────────────────────── */
+/* Only include verified, active profiles. Add others as they are created. */
 export const SOCIALS = [
   { label: "GitHub", href: "https://github.com/dbjtechnologies", icon: "github" },
   { label: "LinkedIn", href: "https://linkedin.com/company/dbjtechnologies", icon: "linkedin" },
-  { label: "X / Twitter", href: "https://x.com/dbjtechnologies", icon: "twitter" },
-  { label: "Instagram", href: "https://instagram.com/dbjtechnologies", icon: "instagram" },
 ] as const;
 
-/* ─── STATS ─────────────────────────────────────────── */
+/* ─── STATS (COMMITMENTS, NOT VANITY METRICS) ──────── */
 export const STATS = [
-  { value: 500, suffix: "+", label: "Projects Delivered" },
-  { value: 200, suffix: "+", label: "Happy Clients" },
-  { value: 99.9, suffix: "%", label: "Uptime Guaranteed" },
-  { value: 8, suffix: "+", label: "Years of Excellence" },
+  { value: 90, suffix: "+", label: "Lighthouse Score Standard" },
+  { value: 100, suffix: "%", label: "Client Code Ownership" },
+  { value: 30, suffix: "-day", label: "Post-Launch Support" },
+  { value: 4, suffix: "-phase", label: "Delivery Process" },
 ];
 
 /* ─── SERVICES ──────────────────────────────────────── */
@@ -117,23 +114,23 @@ export const SERVICES: ServiceItem[] = [
     icon: Cloud,
     slug: "cloud-devops",
     title: "Cloud & DevOps",
-    tagline: "Scalable infrastructure that never sleeps",
+    tagline: "Scalable infrastructure that stays up",
     description:
       "We architect cloud solutions on AWS, GCP, and Azure that scale with your business. From CI/CD pipelines to containerized deployments, your infrastructure is in expert hands.",
     features: [
       "AWS, GCP, Azure deployments",
       "Docker & Kubernetes orchestration",
       "CI/CD pipeline automation",
-      "24/7 monitoring & incident response",
+      "Monitoring & incident response",
     ],
   },
   {
     icon: Palette,
     slug: "ui-ux-design",
     title: "UI/UX Design",
-    tagline: "Interfaces users fall in love with",
+    tagline: "Interfaces built on research, not guesswork",
     description:
-      "Design is more than aesthetics. We craft user journeys grounded in research and psychology, then bring them to life with motion, interaction design, and pixel-level precision.",
+      "Design is more than aesthetics. We craft user journeys grounded in research, then bring them to life with motion, interaction design, and pixel-level precision.",
     features: [
       "User research & personas",
       "Wireframing & interactive prototypes",
@@ -159,9 +156,9 @@ export const SERVICES: ServiceItem[] = [
     icon: Search,
     slug: "seo-digital-marketing",
     title: "SEO & Digital Marketing",
-    tagline: "Get found. Get chosen. Get results.",
+    tagline: "Visibility that compounds over time",
     description:
-      "Visibility is everything. We combine technical SEO with content strategy and paid media to drive qualified traffic, improve rankings, and deliver measurable business growth.",
+      "We combine technical SEO with content strategy and paid media to drive qualified traffic, improve rankings, and deliver measurable business growth.",
     features: [
       "Technical SEO audits & fixes",
       "Content strategy & creation",
@@ -176,12 +173,12 @@ export const PROCESS_STEPS = [
   {
     step: "01",
     title: "Discovery",
-    description: "We learn your business, goals, audience, and competitive landscape to define the perfect strategy.",
+    description: "We learn your business, goals, audience, and competitive landscape to define a clear strategy.",
   },
   {
     step: "02",
     title: "Design",
-    description: "Interactive prototypes and visual designs that align with your brand and delight your users.",
+    description: "Interactive prototypes and visual designs that align with your brand and are validated before development.",
   },
   {
     step: "03",
@@ -203,29 +200,14 @@ export const TECH_STACK = [
 ];
 
 /* ─── TESTIMONIALS ──────────────────────────────────── */
-export const TESTIMONIALS = [
-  {
-    quote: "DBJ Technologies completely transformed our digital presence. Our new site loads in under a second and conversions jumped 40% in the first month.",
-    name: "Sarah Mitchell",
-    role: "CEO, Apex Ventures",
-  },
-  {
-    quote: "Their team doesn't just build websites — they engineer experiences. The attention to detail and performance optimization was beyond anything we'd seen before.",
-    name: "Marcus Chen",
-    role: "CTO, NovaBridge Labs",
-  },
-  {
-    quote: "We needed a complex e-commerce platform on a tight timeline. DBJ delivered early, under budget, and the quality was exceptional. They're our permanent tech partner now.",
-    name: "Daniella Reyes",
-    role: "Founder, LuxeThread",
-  },
-];
+/* Add real client testimonials as they come in.
+   The TestimonialsSection renders nothing when this is empty. */
+export const TESTIMONIALS: { quote: string; name: string; role: string }[] = [];
 
-/* ─── CLIENT LOGOS (PLACEHOLDER NAMES) ──────────────── */
-export const CLIENT_LOGOS = [
-  "TechNova", "Meridian Group", "Apex Ventures", "LuxeThread",
-  "NovaBridge", "Pinnacle AI", "Vertex Labs", "Catalyst Corp",
-];
+/* ─── CLIENT LOGOS ─────────────────────────────────── */
+/* Add real client names/logos as permission is obtained.
+   The ClientLogos section renders nothing when this is empty. */
+export const CLIENT_LOGOS: string[] = [];
 
 /* ─── PRICING ───────────────────────────────────────── */
 export interface PricingFeature {
@@ -246,7 +228,7 @@ export interface PricingTier {
 export const PRICING_TIERS: PricingTier[] = [
   {
     name: "Starter",
-    description: "Perfect for small businesses and personal brands launching their first professional site.",
+    description: "For small businesses and personal brands launching their first professional site.",
     monthlyPrice: 2499,
     annualPrice: 1999,
     popular: false,
@@ -264,7 +246,7 @@ export const PRICING_TIERS: PricingTier[] = [
   },
   {
     name: "Professional",
-    description: "For growing companies that need a high-performance site with advanced features and integrations.",
+    description: "For growing companies that need advanced features, CMS integration, and custom design.",
     monthlyPrice: 5999,
     annualPrice: 4999,
     popular: true,
@@ -282,7 +264,7 @@ export const PRICING_TIERS: PricingTier[] = [
   },
   {
     name: "Enterprise",
-    description: "Full-scale digital transformation with dedicated engineering, custom infrastructure, and white-glove service.",
+    description: "Custom web applications with dedicated engineering, infrastructure, and white-glove service.",
     monthlyPrice: null,
     annualPrice: null,
     popular: false,
@@ -311,17 +293,17 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     category: "General",
     question: "What types of businesses does DBJ Technologies work with?",
-    answer: "We work with businesses of all sizes — from solo entrepreneurs launching their first site to enterprise organizations needing complex web applications. Our sweet spot is growth-stage companies that need technology to scale.",
+    answer: "We work with businesses of all sizes — from solo entrepreneurs launching their first site to growing companies that need complex web applications. Our focus is growth-stage companies that need technology built right the first time.",
   },
   {
     category: "General",
     question: "How long does a typical project take?",
-    answer: "A standard 5–10 page website takes 4–6 weeks. Complex web applications with custom backends typically run 8–16 weeks. We'll provide a detailed timeline during our discovery phase.",
+    answer: "A standard 5–10 page website takes 4–6 weeks. Complex web applications with custom backends typically run 8–16 weeks. We provide a detailed timeline during the discovery phase before any commitment.",
   },
   {
     category: "General",
     question: "Do you work with clients outside of Texas?",
-    answer: "Absolutely. While we're headquartered in Dallas, we work with clients worldwide. All of our project management, design reviews, and communication happens digitally.",
+    answer: "Yes. While we're based in Dallas, we work with clients across the US and internationally. All project management, design reviews, and communication happens digitally.",
   },
   {
     category: "Technical",
@@ -331,22 +313,22 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     category: "Technical",
     question: "Will my website be mobile-responsive?",
-    answer: "Every project we deliver is fully responsive across all devices and screen sizes. We test on real devices — not just browser emulators — to ensure a flawless experience everywhere.",
+    answer: "Every project we deliver is fully responsive across all devices and screen sizes. We test on real devices — not just browser emulators — to ensure a consistent experience everywhere.",
   },
   {
     category: "Technical",
     question: "Do you provide hosting and domain setup?",
-    answer: "Yes. We can set up hosting on Vercel, AWS, or your preferred provider. We also handle domain registration, DNS configuration, SSL certificates, and email setup.",
+    answer: "Yes. We handle hosting setup on Vercel, AWS, or your preferred provider, plus domain registration, DNS configuration, SSL certificates, and email setup.",
   },
   {
     category: "Technical",
     question: "Can you integrate with our existing tools and APIs?",
-    answer: "Absolutely. We regularly integrate with CRMs (HubSpot, Salesforce), payment processors (Stripe, PayPal), analytics platforms, and custom APIs. If it has an API, we can connect it.",
+    answer: "Yes. We regularly integrate with CRMs (HubSpot, Salesforce), payment processors (Stripe, PayPal), analytics platforms, and custom APIs. If it has an API, we can connect it.",
   },
   {
     category: "Billing",
     question: "How does your pricing work?",
-    answer: "We offer fixed-price project packages as well as monthly retainer engagements. All projects begin with a paid discovery phase that includes a detailed scope, timeline, and cost breakdown before any development begins.",
+    answer: "We offer fixed-price project packages based on scope. All projects begin with a discovery phase that produces a detailed scope, timeline, and cost breakdown before development begins. No hourly billing, no surprise invoices.",
   },
   {
     category: "Billing",
@@ -361,7 +343,7 @@ export const FAQ_ITEMS: FaqItem[] = [
   {
     category: "Support",
     question: "What happens after my project launches?",
-    answer: "Every project includes 30 days of post-launch support at no additional cost. After that, we offer monthly maintenance plans or ad-hoc support at our standard hourly rate.",
+    answer: "Every project includes 30 days of post-launch support at no additional cost. After that, we offer monthly maintenance plans or ad-hoc support at our standard rate.",
   },
   {
     category: "Support",
@@ -383,35 +365,35 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
   {
     title: "Apex Ventures Corporate Hub",
     category: "Corporate",
-    description: "A sleek corporate site with animated data visualizations and investor portal integration.",
+    description: "A corporate site with animated data visualizations and investor portal integration.",
     tags: ["Next.js", "Framer Motion", "Vercel"],
     gradient: "from-blue-600 to-cyan-500",
   },
   {
     title: "LuxeThread E-Commerce Platform",
     category: "E-Commerce",
-    description: "High-end fashion marketplace with AI-powered recommendations and sub-second page loads.",
+    description: "High-end fashion marketplace with personalized recommendations and optimized page loads.",
     tags: ["React", "Shopify", "Node.js"],
     gradient: "from-violet-600 to-pink-500",
   },
   {
     title: "NovaBridge SaaS Dashboard",
     category: "SaaS",
-    description: "Enterprise analytics dashboard processing 10M+ events daily with real-time visualizations.",
+    description: "Enterprise analytics dashboard with real-time event processing and data visualizations.",
     tags: ["TypeScript", "D3.js", "AWS"],
     gradient: "from-emerald-600 to-teal-500",
   },
   {
     title: "Catalyst Corp Landing Page",
     category: "Landing Pages",
-    description: "Conversion-optimized product launch page that achieved a 12% signup rate in week one.",
+    description: "Conversion-optimized product launch page with A/B tested layouts and clear CTAs.",
     tags: ["Next.js", "Tailwind", "A/B Testing"],
     gradient: "from-orange-500 to-red-500",
   },
   {
     title: "Pinnacle AI Platform",
     category: "SaaS",
-    description: "AI model management platform with drag-and-drop workflow builder and real-time inference monitoring.",
+    description: "AI model management platform with drag-and-drop workflow builder and inference monitoring.",
     tags: ["React", "Python", "Docker"],
     gradient: "from-blue-500 to-violet-600",
   },
@@ -439,17 +421,13 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
 ];
 
 /* ─── ABOUT PAGE ────────────────────────────────────── */
-export const TEAM_MEMBERS = [
-  { name: "David Blackwell", role: "Founder & CEO", bio: "15 years in enterprise tech. Previously led engineering at two YC startups." },
-  { name: "Jessica Tran", role: "Head of Design", bio: "Award-winning designer. Former design lead at a Fortune 500 SaaS company." },
-  { name: "Brandon Kowalski", role: "Lead Engineer", bio: "Full-stack architect specializing in high-traffic distributed systems." },
-  { name: "Anika Patel", role: "Project Director", bio: "PMP-certified with a track record of delivering 150+ digital projects on time and on budget." },
-];
+/* Add real team members when ready to publish bios. */
+export const TEAM_MEMBERS: { name: string; role: string; bio: string }[] = [];
 
 export const VALUES = [
-  { title: "Craft Over Speed", description: "We never ship anything we wouldn't proudly put our name on. Quality is non-negotiable." },
+  { title: "Craft Over Speed", description: "We never ship anything we wouldn't put our name on. Quality is non-negotiable." },
   { title: "Radical Transparency", description: "No black boxes. Clients see every decision, timeline update, and line of code." },
-  { title: "Performance Obsession", description: "Every millisecond matters. We engineer for speed because your users demand it." },
+  { title: "Performance Obsession", description: "Every millisecond matters. We engineer for speed because your users and rankings demand it." },
   { title: "Long-Term Partnership", description: "We don't disappear after launch. We grow with our clients and evolve their technology." },
 ];
 

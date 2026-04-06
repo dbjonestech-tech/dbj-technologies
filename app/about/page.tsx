@@ -4,11 +4,11 @@ import AboutContent from "./AboutContent";
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "Learn about DBJ Technologies — a Dallas-based web development and technology company engineering fast, beautiful, and scalable digital solutions since 2018.",
+    "DBJ Technologies is a web development studio based in Dallas, TX. We build high-performance websites and applications with senior-level engineering, modern tooling, and full code ownership.",
   openGraph: {
     title: "About Us | DBJ Technologies",
     description:
-      "Meet the team behind DBJ Technologies. Senior engineers, award-winning designers, and a culture of craft.",
+      "A Dallas-based web development studio focused on performance, transparency, and long-term partnerships.",
   },
 };
 

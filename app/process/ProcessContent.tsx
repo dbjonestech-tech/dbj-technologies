@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { CheckCircle2, MessageSquare, DollarSign, ShieldCheck } from "lucide-react";
-import Link from "next/link";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { GridBackground } from "@/components/effects/GridBackground";
 import { GradientBlob } from "@/components/effects/GradientBlob";
@@ -14,7 +13,7 @@ const phases = [
     step: "01",
     title: "Discovery & Strategy",
     description:
-      "Every successful project starts with understanding. We immerse ourselves in your business, interview stakeholders, analyze competitors, and define measurable goals. The output is a clear project brief that aligns everyone on scope, timeline, and success criteria.",
+      "Every project starts with understanding. We learn your business, interview stakeholders, analyze competitors, and define measurable goals. The output is a clear project brief that aligns everyone on scope, timeline, and success criteria.",
     activities: [
       "Stakeholder interviews and goal alignment",
       "Competitive landscape analysis",
@@ -27,7 +26,7 @@ const phases = [
     step: "02",
     title: "Design & Prototyping",
     description:
-      "We translate strategy into screens. Starting with wireframes and information architecture, we progress to high-fidelity visual designs and interactive prototypes. Every design is reviewed with you and tested before a single line of code is written.",
+      "We translate strategy into screens. Starting with wireframes and information architecture, we progress to high-fidelity visual designs and interactive prototypes. Every design is reviewed with you and tested before development begins.",
     activities: [
       "Information architecture and sitemap",
       "Wireframes for all key pages and flows",
@@ -40,7 +39,7 @@ const phases = [
     step: "03",
     title: "Development & Testing",
     description:
-      "Our senior engineers build your project with clean, maintainable code on modern frameworks. We work in two-week sprints with regular demos so you see progress in real time. Every feature is tested for performance, accessibility, and cross-browser compatibility.",
+      "We build with clean, maintainable code on modern frameworks. We work in two-week sprints with regular demos so you see progress in real time. Every feature is tested for performance, accessibility, and cross-browser compatibility.",
     activities: [
       "Architecture setup and development environment",
       "Two-week sprint cycles with progress demos",
@@ -53,7 +52,7 @@ const phases = [
     step: "04",
     title: "Launch & Support",
     description:
-      "We don&apos;t just throw code over the wall. We handle deployment, DNS, SSL, monitoring, and analytics setup. After launch, you get 30 days of complimentary support and a detailed handoff package. We&apos;re here for the long run.",
+      "We handle deployment, DNS, SSL, monitoring, and analytics setup. After launch, you get 30 days of complimentary support and a detailed handoff package with full source code and documentation.",
     activities: [
       "Production deployment and DNS configuration",
       "SSL, CDN, and caching setup",
@@ -67,19 +66,19 @@ const phases = [
 const expectations = [
   {
     icon: MessageSquare,
-    title: "Transparent Communication",
+    title: "Clear Communication",
     description:
-      "Weekly updates, shared project boards, and direct access to your project team. No black boxes.",
+      "Regular updates, shared project boards, and direct access to your project team. No black boxes.",
   },
   {
     icon: DollarSign,
     title: "Fixed-Price Confidence",
     description:
-      "Your budget is agreed before development begins. No scope creep, no surprise invoices, no hourly billing anxiety.",
+      "Your budget is agreed before development begins. No scope creep, no surprise invoices, no hourly billing.",
   },
   {
     icon: ShieldCheck,
-    title: "Quality Guaranteed",
+    title: "Quality Standards",
     description:
       "90+ Lighthouse scores, WCAG AA+ accessibility, and code reviews on every pull request. We don\u2019t ship anything we wouldn\u2019t put our name on.",
   },
@@ -108,9 +107,9 @@ export default function ProcessContent() {
             transition={{ delay: 0.1 }}
             className="font-display text-section font-bold leading-tight"
           >
-            How We Turn Ideas Into
+            Four Phases.
             <br />
-            <span className="text-gradient">Digital Reality.</span>
+            <span className="text-gradient">Zero Ambiguity.</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -118,9 +117,8 @@ export default function ProcessContent() {
             transition={{ delay: 0.2 }}
             className="mt-6 text-lg text-text-secondary max-w-2xl mx-auto leading-relaxed"
           >
-            A proven 4-phase process refined over hundreds of projects. From
-            first conversation to final launch, every step is designed to
-            deliver on time, on budget, and above expectations.
+            A structured delivery process with clear milestones, checkpoints, and
+            deliverables at every stage. You always know where your project stands.
           </motion.p>
         </div>
       </section>
@@ -130,7 +128,7 @@ export default function ProcessContent() {
         <SectionHeading
           label="The 4 Phases"
           title="From Concept to Launch"
-          description="Each phase has clear deliverables, checkpoints, and sign-offs so you always know exactly where your project stands."
+          description="Each phase has clear deliverables and sign-offs so nothing moves forward without your approval."
         />
         <div className="mx-auto max-w-3xl px-6 lg:px-8">
           <div className="relative border-l border-white/[0.08] pl-8 ml-4 space-y-16">
@@ -184,7 +182,7 @@ export default function ProcessContent() {
         <SectionHeading
           label="What to Expect"
           title="The Client Experience"
-          description="Working with us should feel effortless. Here's how we make that happen."
+          description="Working with us should feel structured, not stressful."
         />
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -220,7 +218,7 @@ export default function ProcessContent() {
         <SectionHeading
           label="Our Toolkit"
           title="Tools We Use"
-          description="We rely on best-in-class tools for project management, design, and communication."
+          description="Best-in-class tools for project management, design, and communication."
         />
         <div className="mx-auto max-w-4xl px-6 lg:px-8">
           <motion.div
@@ -246,8 +244,12 @@ export default function ProcessContent() {
         </div>
       </section>
 
-      {/* CTA */}
-      <CTASection />
+      <CTASection
+        heading="Ready to Get Started?"
+        highlight="Phase One Awaits."
+        description="The first step is a conversation. Tell us about your project and we'll outline how we'd approach it — timeline, scope, and cost."
+        buttonText="Start Discovery"
+      />
     </>
   );
 }

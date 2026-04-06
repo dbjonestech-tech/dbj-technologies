@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Mail, Phone, MapPin, Send, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
+import { Mail, MapPin, Send, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
 import { Input } from "@/components/ui/Input";
 import { Textarea } from "@/components/ui/Textarea";
 import { GridBackground } from "@/components/effects/GridBackground";
@@ -87,7 +87,7 @@ export default function ContactContent() {
             className="mt-6 text-lg text-text-secondary max-w-2xl mx-auto"
           >
             Tell us about your project and we&apos;ll get back to you within
-            24 hours with a plan.
+            one business day.
           </motion.p>
         </div>
       </section>
@@ -108,10 +108,10 @@ export default function ContactContent() {
                   <div className="flex h-16 w-16 items-center justify-center rounded-full bg-green-500/10 text-green-400 mb-4">
                     <CheckCircle2 className="h-8 w-8" aria-hidden="true" />
                   </div>
-                  <h3 className="font-display text-2xl font-bold mb-2">Message Sent!</h3>
+                  <h3 className="font-display text-2xl font-bold mb-2">Message Sent</h3>
                   <p className="text-text-secondary max-w-sm">
-                    Thanks for reaching out. We&apos;ll review your project details and
-                    get back to you within 24 hours.
+                    We&apos;ll review your project details and get back to you
+                    within one business day.
                   </p>
                   <button
                     onClick={() => setStatus("idle")}
@@ -260,21 +260,6 @@ export default function ContactContent() {
                       </p>
                     </div>
                   </a>
-                  <a
-                    href={`tel:${SITE.phone}`}
-                    className="flex items-start gap-4 group"
-                    aria-label={`Call us at ${SITE.phone}`}
-                  >
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent-blue/10 text-accent-blue group-hover:bg-accent-blue/20 transition-colors">
-                      <Phone className="h-5 w-5" aria-hidden="true" />
-                    </div>
-                    <div>
-                      <p className="text-xs uppercase tracking-widest text-text-muted mb-1">Phone</p>
-                      <p className="text-sm text-text-secondary group-hover:text-white transition-colors">
-                        {SITE.phone}
-                      </p>
-                    </div>
-                  </a>
                   <div className="flex items-start gap-4">
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent-blue/10 text-accent-blue">
                       <MapPin className="h-5 w-5" aria-hidden="true" />
@@ -291,29 +276,31 @@ export default function ContactContent() {
               <div className="glass-card p-8">
                 <h3 className="font-display text-lg font-bold mb-3">Response Time</h3>
                 <p className="text-sm text-text-secondary leading-relaxed">
-                  We respond to all inquiries within 24 hours during business
-                  days. For urgent matters, give us a call.
+                  We respond to all inquiries within one business day. Most
+                  responses are same-day.
                 </p>
               </div>
 
-              {/* Social */}
-              <div className="glass-card p-8">
-                <h3 className="font-display text-lg font-bold mb-4">Follow Us</h3>
-                <div className="flex gap-3">
-                  {SOCIALS.map((s) => (
-                    <a
-                      key={s.label}
-                      href={s.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/[0.06] bg-white/[0.02] text-text-secondary hover:text-white hover:border-accent-blue/30 transition-all"
-                      aria-label={s.label}
-                    >
-                      <span className="text-xs font-bold">{s.label.charAt(0)}</span>
-                    </a>
-                  ))}
+              {/* Social — only shown when there are verified profiles */}
+              {SOCIALS.length > 0 && (
+                <div className="glass-card p-8">
+                  <h3 className="font-display text-lg font-bold mb-4">Find Us Online</h3>
+                  <div className="flex gap-3">
+                    {SOCIALS.map((s) => (
+                      <a
+                        key={s.label}
+                        href={s.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/[0.06] bg-white/[0.02] text-text-secondary hover:text-white hover:border-accent-blue/30 transition-all"
+                        aria-label={s.label}
+                      >
+                        <span className="text-xs font-bold">{s.label.charAt(0)}</span>
+                      </a>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              )}
             </motion.div>
           </div>
         </div>

@@ -4,7 +4,6 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ExternalLink, Info } from "lucide-react";
 import Link from "next/link";
-import { SectionHeading } from "@/components/ui/SectionHeading";
 import { GridBackground } from "@/components/effects/GridBackground";
 import { GradientBlob } from "@/components/effects/GradientBlob";
 import { CTASection } from "@/components/sections/CTA";
@@ -44,9 +43,9 @@ export default function WorkContent() {
             transition={{ delay: 0.1 }}
             className="font-display text-section font-bold leading-tight"
           >
-            Projects That
+            What We&apos;re
             <br />
-            <span className="text-gradient">Prove Our Process.</span>
+            <span className="text-gradient">Capable Of.</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -54,8 +53,9 @@ export default function WorkContent() {
             transition={{ delay: 0.2 }}
             className="mt-6 text-lg text-text-secondary max-w-2xl mx-auto"
           >
-            Explore concept projects and case studies that showcase our
-            engineering, design, and problem-solving capabilities.
+            Concept projects and technical demonstrations that showcase our
+            engineering, design, and problem-solving approach. Each project
+            represents real capabilities applied to realistic scenarios.
           </motion.p>
         </div>
       </section>
@@ -111,7 +111,7 @@ export default function WorkContent() {
                     >
                       <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
                         <span className="flex items-center gap-2 rounded-full bg-white/20 backdrop-blur-sm px-5 py-2.5 text-sm font-medium text-white border border-white/20">
-                          View Case Study{" "}
+                          View Details{" "}
                           <ExternalLink
                             className="h-3.5 w-3.5"
                             aria-hidden="true"
@@ -130,7 +130,7 @@ export default function WorkContent() {
                         <p className="text-xs font-mono uppercase tracking-widest text-accent-blue">
                           {project.category}
                         </p>
-                        <span className="inline-flex items-center gap-1 rounded-full border border-amber-500/20 bg-amber-500/5 px-2 py-0.5 text-xs text-amber-400">
+                        <span className="inline-flex items-center gap-1 rounded-full border border-white/[0.08] bg-white/[0.03] px-2 py-0.5 text-xs text-text-muted">
                           <Info className="h-3 w-3" aria-hidden="true" />{" "}
                           {project.typeLabel}
                         </span>
@@ -155,7 +155,12 @@ export default function WorkContent() {
         </div>
       </section>
 
-      <CTASection />
+      <CTASection
+        heading="Like What You See?"
+        highlight="Let's Build Yours."
+        description="These projects demonstrate our capabilities. Your project gets the same engineering standards, applied to your specific goals."
+        buttonText="Discuss Your Project"
+      />
     </>
   );
 }

@@ -126,7 +126,12 @@ export default function FaqContent() {
         </div>
       </section>
 
-      <CTASection />
+      <CTASection
+        heading="Still Have Questions?"
+        highlight="Ask Us Directly."
+        description="We're happy to answer anything not covered here. Reach out and we'll get back to you within one business day."
+        buttonText="Contact Us"
+      />
     </>
   );
 }

@@ -3,20 +3,10 @@
 import { motion } from "framer-motion";
 import { CheckCircle2, ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { SectionHeading } from "@/components/ui/SectionHeading";
 import { GridBackground } from "@/components/effects/GridBackground";
 import { GradientBlob } from "@/components/effects/GradientBlob";
 import { CTASection } from "@/components/sections/CTA";
 import { SERVICES } from "@/lib/constants";
-
-const whyUs = [
-  { title: "Senior Engineers Only", desc: "No juniors learning on your dime. Every team member has 5+ years of production experience." },
-  { title: "Fixed-Price Transparency", desc: "You know the cost before we write a single line of code. No surprise invoices, ever." },
-  { title: "Performance Guaranteed", desc: "We guarantee 90+ Lighthouse scores on every project. Speed isn't optional — it's the standard." },
-  { title: "Scalable Architecture", desc: "We build for today's traffic and tomorrow's growth. No rebuilds needed when you scale 10x." },
-  { title: "Post-Launch Support", desc: "30 days of complimentary support after every launch, with optional ongoing maintenance plans." },
-  { title: "100% Code Ownership", desc: "You own everything. Full source code, documentation, and deployment guides delivered at launch." },
-];
 
 export default function ServicesContent() {
   return (
@@ -39,9 +29,9 @@ export default function ServicesContent() {
             transition={{ delay: 0.1 }}
             className="font-display text-section font-bold leading-tight"
           >
-            Everything You Need to
+            What We Build
             <br />
-            <span className="text-gradient">Dominate Digital.</span>
+            <span className="text-gradient">and How.</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -49,8 +39,8 @@ export default function ServicesContent() {
             transition={{ delay: 0.2 }}
             className="mt-6 text-lg text-text-secondary max-w-2xl mx-auto"
           >
-            From pixel-perfect front ends to bulletproof cloud infrastructure,
-            we deliver full-spectrum digital solutions.
+            From front-end engineering to cloud infrastructure — every service
+            is scoped, priced, and delivered with the same standards.
           </motion.p>
         </div>
       </section>
@@ -103,33 +93,12 @@ export default function ServicesContent() {
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <section className="py-32 bg-bg-secondary/50">
-        <SectionHeading
-          label="Why DBJ"
-          title="Why Companies Choose Us"
-          description="It's not just about the code — it's about the experience of working with a team that actually gives a damn."
-        />
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {whyUs.map((item, i) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08 }}
-                className="glass-card-hover p-6"
-              >
-                <h3 className="font-display text-lg font-bold mb-2">{item.title}</h3>
-                <p className="text-sm text-text-secondary leading-relaxed">{item.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <CTASection />
+      <CTASection
+        heading="Need Something Specific?"
+        highlight="Let's Scope It."
+        description="Every project starts with a clear scope and fixed price. Tell us what you need and we'll tell you exactly what it takes."
+        buttonText="Start a Conversation"
+      />
     </>
   );
 }

@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
 import { Check, X, Sparkles } from "lucide-react";
 import Link from "next/link";
@@ -11,7 +10,6 @@ import { Accordion } from "@/components/ui/Accordion";
 import { PRICING_TIERS, FAQ_ITEMS } from "@/lib/constants";
 
 export default function PricingContent() {
-  const [annual, setAnnual] = useState(false);
   const billingFaqs = FAQ_ITEMS.filter((f) => f.category === "Billing");
 
   return (
@@ -34,9 +32,9 @@ export default function PricingContent() {
             transition={{ delay: 0.1 }}
             className="font-display text-section font-bold leading-tight"
           >
-            Transparent Pricing,
+            Fixed Pricing,
             <br />
-            <span className="text-gradient">No Surprises.</span>
+            <span className="text-gradient">Clear Scope.</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -44,43 +42,18 @@ export default function PricingContent() {
             transition={{ delay: 0.2 }}
             className="mt-6 text-lg text-text-secondary max-w-2xl mx-auto"
           >
-            Fixed-price packages for every stage of growth. Know exactly what
-            you&apos;re getting before we start.
+            Project-based packages with transparent pricing. Know exactly what
+            you&apos;re getting — and what it costs — before we start.
           </motion.p>
         </div>
       </section>
 
-      {/* Toggle */}
+      {/* Pricing note */}
       <section className="pb-8">
-        <div className="flex items-center justify-center gap-4">
-          <span className={`text-sm font-medium ${!annual ? "text-white" : "text-text-muted"}`}>
-            Monthly
+        <div className="flex items-center justify-center">
+          <span className="text-sm text-text-muted">
+            All prices are per-project, fixed before development begins
           </span>
-          <button
-            onClick={() => setAnnual(!annual)}
-            className="relative h-8 w-14 rounded-full border border-white/[0.1] bg-white/[0.04] p-1 transition-colors"
-            role="switch"
-            aria-checked={annual}
-            aria-label="Toggle annual billing"
-          >
-            <motion.div
-              className="h-6 w-6 rounded-full bg-accent-blue"
-              animate={{ x: annual ? 22 : 0 }}
-              transition={{ type: "spring", stiffness: 500, damping: 30 }}
-            />
-          </button>
-          <span className={`text-sm font-medium ${annual ? "text-white" : "text-text-muted"}`}>
-            Annual
-          </span>
-          {annual && (
-            <motion.span
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              className="rounded-full bg-green-500/10 border border-green-500/20 px-3 py-1 text-xs font-medium text-green-400"
-            >
-              Save 20%
-            </motion.span>
-          )}
         </div>
       </section>
 
@@ -117,7 +90,7 @@ export default function PricingContent() {
                   {tier.monthlyPrice !== null ? (
                     <div className="flex items-baseline gap-1">
                       <span className="font-display text-5xl font-bold">
-                        ${(annual ? tier.annualPrice! : tier.monthlyPrice).toLocaleString()}
+                        ${tier.monthlyPrice.toLocaleString()}
                       </span>
                       <span className="text-text-muted text-sm">/project</span>
                     </div>

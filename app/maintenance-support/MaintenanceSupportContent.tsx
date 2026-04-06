@@ -228,7 +228,12 @@ export default function MaintenanceSupportContent() {
         </div>
       </section>
 
-      <CTASection />
+      <CTASection
+        heading="Need Ongoing Support?"
+        highlight="We've Got You Covered."
+        description="Every plan includes direct communication with our engineering team. No ticket queues, no outsourced support."
+        buttonText="Choose a Plan"
+      />
     </>
   );
 }

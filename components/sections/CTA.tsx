@@ -5,7 +5,21 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { MagneticButton } from "@/components/effects/MagneticButton";
 
-export function CTASection() {
+interface CTAProps {
+  heading?: string;
+  highlight?: string;
+  description?: string;
+  buttonText?: string;
+  buttonHref?: string;
+}
+
+export function CTASection({
+  heading = "Ready to Build",
+  highlight = "Something Great?",
+  description = "Tell us about your project. No pressure, no commitment — just a conversation about what you need and how we can help.",
+  buttonText = "Start a Conversation",
+  buttonHref = "/contact",
+}: CTAProps) {
   return (
     <section className="relative py-32 overflow-hidden">
       {/* Background */}
@@ -23,9 +37,9 @@ export function CTASection() {
           viewport={{ once: true }}
           className="font-display text-section font-bold leading-tight"
         >
-          Ready to Build
+          {heading}
           <br />
-          <span className="text-gradient">Something Extraordinary?</span>
+          <span className="text-gradient">{highlight}</span>
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -34,8 +48,7 @@ export function CTASection() {
           transition={{ delay: 0.1 }}
           className="mt-6 text-lg text-text-secondary max-w-2xl mx-auto"
         >
-          Let&apos;s talk about your project. No pressure, no commitment — just a
-          conversation about how technology can accelerate your business.
+          {description}
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -44,9 +57,9 @@ export function CTASection() {
           transition={{ delay: 0.2 }}
           className="mt-10"
         >
-          <Link href="/contact">
+          <Link href={buttonHref}>
             <MagneticButton className="btn-primary text-base" strength={0.2}>
-              Start a Conversation
+              {buttonText}
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </MagneticButton>
           </Link>

@@ -2,34 +2,31 @@
 
 import { motion } from "framer-motion";
 import { ShieldCheck, Code2, DollarSign, Headphones, Users, Zap, Layers, Eye, Award, Target } from "lucide-react";
-import Link from "next/link";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { GridBackground } from "@/components/effects/GridBackground";
 import { GradientBlob } from "@/components/effects/GradientBlob";
 import { CTASection } from "@/components/sections/CTA";
-import { AnimatedCounter } from "@/components/ui/AnimatedCounter";
-import { STATS } from "@/lib/constants";
 
 const guarantees = [
   {
     icon: Award,
     title: "90+ Lighthouse Scores",
-    description: "Every project ships with verified 90+ scores in Performance, Accessibility, Best Practices, and SEO. No exceptions.",
+    description: "Every project ships with verified 90+ scores in Performance, Accessibility, Best Practices, and SEO. We test before delivery — you can verify after.",
   },
   {
     icon: Code2,
     title: "100% Code Ownership",
-    description: "You own every line of code, every design file, every asset. Full source code and documentation delivered at launch.",
+    description: "You own every line of code, every design file, every asset. Full source code and documentation delivered at launch. No lock-in.",
   },
   {
     icon: DollarSign,
-    title: "Fixed-Price Transparency",
-    description: "Your project cost is agreed before development begins. No hourly billing, no scope creep, no surprise invoices.",
+    title: "Fixed-Price Projects",
+    description: "Your project cost is agreed before development begins. No hourly billing, no scope creep, no surprise invoices. The price we quote is the price you pay.",
   },
   {
     icon: Headphones,
     title: "30-Day Post-Launch Support",
-    description: "Every project includes 30 days of complimentary post-launch support. Bugs, questions, adjustments — we've got you.",
+    description: "Every project includes 30 days of complimentary support after launch. Bug fixes, questions, minor adjustments — included in the project price.",
   },
 ];
 
@@ -37,32 +34,32 @@ const differentiators = [
   {
     icon: Users,
     title: "Senior Engineers Only",
-    description: "No juniors learning on your project. Every team member has 5+ years of production experience.",
+    description: "No juniors learning on your project. Every team member has years of production experience across real products and real traffic.",
   },
   {
     icon: Target,
-    title: "Small Team, Big Impact",
-    description: "You work directly with the people building your product. No layers of account managers between you and the engineers.",
+    title: "Direct Access",
+    description: "You work directly with the people building your product. No layers of account managers or project coordinators between you and the engineers.",
   },
   {
     icon: Layers,
-    title: "Modern Stack, Always",
-    description: "We use the same technologies as the world's best tech companies. Your project benefits from cutting-edge tooling.",
+    title: "Modern Stack",
+    description: "We use the same technologies as top product companies — Next.js, React, TypeScript, Vercel, AWS. Your project gets production-grade tooling.",
   },
   {
     icon: ShieldCheck,
-    title: "Long-Term Partnership",
-    description: "We don't disappear after launch. Our best client relationships span years of continuous collaboration.",
+    title: "Built for the Long Run",
+    description: "We don't disappear after launch. We offer ongoing maintenance plans and architect every project for long-term maintainability.",
   },
   {
     icon: Zap,
-    title: "Performance Obsession",
-    description: "Every millisecond matters. We engineer for speed because your users and search rankings demand it.",
+    title: "Performance as a Standard",
+    description: "Speed isn't a feature — it's a baseline. Every project is optimized for Core Web Vitals, because your users and search rankings depend on it.",
   },
   {
     icon: Eye,
-    title: "Radical Transparency",
-    description: "Shared project boards, weekly updates, and direct communication. You always know exactly where things stand.",
+    title: "Transparent Process",
+    description: "Shared project boards, regular updates, and direct communication. You always know exactly where your project stands and what's next.",
   },
 ];
 
@@ -87,9 +84,9 @@ export default function WhyDBJContent() {
             transition={{ delay: 0.1 }}
             className="font-display text-section font-bold leading-tight"
           >
-            Built Different,
+            Guarantees You Can
             <br />
-            <span className="text-gradient">On Purpose.</span>
+            <span className="text-gradient">Verify.</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -97,9 +94,8 @@ export default function WhyDBJContent() {
             transition={{ delay: 0.2 }}
             className="mt-6 text-lg text-text-secondary max-w-2xl mx-auto leading-relaxed"
           >
-            What makes DBJ different from agencies and freelancers? Guarantees
-            you can measure, transparency you can trust, and engineering you can
-            depend on.
+            What separates DBJ from agencies and freelancers? Commitments baked
+            into every contract, not marketing language on a website.
           </motion.p>
         </div>
       </section>
@@ -107,9 +103,9 @@ export default function WhyDBJContent() {
       {/* Guarantees */}
       <section className="py-32">
         <SectionHeading
-          label="Promises We Keep"
+          label="Contractual Commitments"
           title="Our Guarantees"
-          description="These aren't marketing claims. They're commitments baked into every contract."
+          description="These aren't aspirational values. They're written into every project agreement."
         />
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid gap-6 sm:grid-cols-2">
@@ -142,8 +138,8 @@ export default function WhyDBJContent() {
       <section className="py-32 bg-bg-secondary/50">
         <SectionHeading
           label="The DBJ Difference"
-          title="How We're Different"
-          description="We're not the cheapest option — we're the one you won't regret choosing."
+          title="How We Work Differently"
+          description="We're not the cheapest option — we're the one you won't need to redo."
         />
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -172,24 +168,12 @@ export default function WhyDBJContent() {
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="relative py-20 border-y border-white/[0.04]">
-        <div className="absolute inset-0 bg-gradient-to-r from-bg-primary via-bg-secondary to-bg-primary" />
-        <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
-            {STATS.map((stat) => (
-              <AnimatedCounter
-                key={stat.label}
-                value={stat.value}
-                suffix={stat.suffix}
-                label={stat.label}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <CTASection />
+      <CTASection
+        heading="See the Difference"
+        highlight="In Your Project."
+        description="We'd rather show you than tell you. Let's talk about what you're building and how we'd approach it."
+        buttonText="Discuss Your Project"
+      />
     </>
   );
 }

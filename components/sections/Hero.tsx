@@ -83,7 +83,7 @@ export function Hero() {
         >
           <span className="inline-flex items-center gap-2 rounded-full border border-accent-blue/20 bg-accent-blue/5 px-5 py-2 text-xs font-mono uppercase tracking-widest text-accent-blue backdrop-blur-sm">
             <span className="h-1.5 w-1.5 rounded-full bg-accent-blue animate-pulse-glow" />
-            Accepting New Projects for 2026
+            Accepting New Projects
           </span>
         </motion.div>
 
@@ -136,8 +136,7 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 1 }}
         >
-          We engineer blazing-fast websites, scalable web applications, and digital
-          experiences that give your business an unfair advantage.
+          High-performance websites, scalable applications, and cloud infrastructure — built by senior engineers in Dallas, TX.
         </motion.p>
 
         {/* CTAs */}
@@ -153,7 +152,7 @@ export function Hero() {
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
             </MagneticButton>
           </Link>
-          <Link href="/websites">
+          <Link href="/work">
             <MagneticButton className="btn-outline text-base group" strength={0.2}>
               View Our Work
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
