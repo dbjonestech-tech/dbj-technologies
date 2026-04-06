@@ -1,6 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 import { PROCESS_STEPS } from "@/lib/constants";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
@@ -45,6 +47,21 @@ export function ProcessSteps() {
             </motion.div>
           ))}
         </div>
+
+        {/* Link to full process page */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-12 text-center"
+        >
+          <Link
+            href="/process"
+            className="inline-flex items-center gap-2 text-sm font-medium text-accent-blue hover:gap-3 transition-all"
+          >
+            See Our Full Process <ArrowRight className="h-4 w-4" aria-hidden="true" />
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

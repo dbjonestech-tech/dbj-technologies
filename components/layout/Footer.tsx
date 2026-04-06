@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
-import { SITE, NAV_LINKS, SOCIALS, SERVICES } from "@/lib/constants";
+import { SITE, FOOTER_NAV_LINKS, SUPPORT_LINKS, SOCIALS, SERVICES } from "@/lib/constants";
 
 export function Footer() {
   return (
@@ -45,7 +45,7 @@ export function Footer() {
               Navigation
             </h3>
             <ul className="mt-4 space-y-3">
-              {NAV_LINKS.map((link) => (
+              {FOOTER_NAV_LINKS.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
@@ -58,7 +58,7 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Services */}
+          {/* Services + Support */}
           <div>
             <h3 className="font-display text-sm font-bold uppercase tracking-widest text-text-muted">
               Services
@@ -67,10 +67,25 @@ export function Footer() {
               {SERVICES.slice(0, 6).map((s) => (
                 <li key={s.title}>
                   <Link
-                    href="/services"
+                    href={`/services/${s.slug}`}
                     className="text-sm text-text-secondary transition-colors hover:text-white"
                   >
                     {s.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <h3 className="mt-6 font-display text-sm font-bold uppercase tracking-widest text-text-muted">
+              Support
+            </h3>
+            <ul className="mt-4 space-y-3">
+              {SUPPORT_LINKS.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-text-secondary transition-colors hover:text-white"
+                  >
+                    {link.label}
                   </Link>
                 </li>
               ))}

@@ -1,0 +1,161 @@
+"use client";
+
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ExternalLink, Info } from "lucide-react";
+import Link from "next/link";
+import { SectionHeading } from "@/components/ui/SectionHeading";
+import { GridBackground } from "@/components/effects/GridBackground";
+import { GradientBlob } from "@/components/effects/GradientBlob";
+import { CTASection } from "@/components/sections/CTA";
+import { Badge } from "@/components/ui/Badge";
+import { PROJECT_DETAILS } from "@/lib/work-data";
+
+const categories = [
+  "All",
+  ...Array.from(new Set(PROJECT_DETAILS.map((p) => p.category))),
+];
+
+export default function WorkContent() {
+  const [active, setActive] = useState("All");
+
+  const filtered =
+    active === "All"
+      ? PROJECT_DETAILS
+      : PROJECT_DETAILS.filter((p) => p.category === active);
+
+  return (
+    <>
+      {/* Hero */}
+      <section className="relative pt-40 pb-20 overflow-hidden">
+        <GridBackground />
+        <GradientBlob className="-top-40 -right-40" />
+        <div className="relative mx-auto max-w-4xl px-6 text-center lg:px-8">
+          <motion.span
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="inline-block rounded-full border border-accent-blue/20 bg-accent-blue/5 px-4 py-1.5 font-mono text-xs uppercase tracking-widest text-accent-blue mb-6"
+          >
+            Our Work
+          </motion.span>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="font-display text-section font-bold leading-tight"
+          >
+            Projects That
+            <br />
+            <span className="text-gradient">Prove Our Process.</span>
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="mt-6 text-lg text-text-secondary max-w-2xl mx-auto"
+          >
+            Explore concept projects and case studies that showcase our
+            engineering, design, and problem-solving capabilities.
+          </motion.p>
+        </div>
+      </section>
+
+      {/* Filters + Grid */}
+      <section className="py-20">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          {/* Filters */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="flex flex-wrap justify-center gap-2 mb-12"
+          >
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActive(cat)}
+                className={`rounded-full px-5 py-2 text-sm font-medium transition-all duration-300 ${
+                  active === cat
+                    ? "bg-accent-blue text-white shadow-glow-blue"
+                    : "border border-white/[0.08] bg-white/[0.02] text-text-secondary hover:text-white hover:border-white/[0.15]"
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </motion.div>
+
+          {/* Grid */}
+          <motion.div
+            layout
+            className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+          >
+            <AnimatePresence mode="popLayout">
+              {filtered.map((project) => (
+                <motion.div
+                  key={project.slug}
+                  layout
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <Link
+                    href={`/work/${project.slug}`}
+                    className="glass-card-hover overflow-hidden group cursor-pointer block"
+                  >
+                    {/* Gradient placeholder image */}
+                    <div
+                      className={`relative h-52 bg-gradient-to-br ${project.gradient} overflow-hidden`}
+                      role="img"
+                      aria-label={`${project.title} project preview`}
+                    >
+                      <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                        <span className="flex items-center gap-2 rounded-full bg-white/20 backdrop-blur-sm px-5 py-2.5 text-sm font-medium text-white border border-white/20">
+                          View Case Study{" "}
+                          <ExternalLink
+                            className="h-3.5 w-3.5"
+                            aria-hidden="true"
+                          />
+                        </span>
+                      </div>
+                      {/* Decorative pattern */}
+                      <div
+                        className="absolute inset-0 dot-grid opacity-20"
+                        aria-hidden="true"
+                      />
+                    </div>
+
+                    <div className="p-6">
+                      <div className="flex items-center gap-2 mb-3">
+                        <p className="text-xs font-mono uppercase tracking-widest text-accent-blue">
+                          {project.category}
+                        </p>
+                        <span className="inline-flex items-center gap-1 rounded-full border border-amber-500/20 bg-amber-500/5 px-2 py-0.5 text-xs text-amber-400">
+                          <Info className="h-3 w-3" aria-hidden="true" />{" "}
+                          {project.typeLabel}
+                        </span>
+                      </div>
+                      <h3 className="font-display text-lg font-bold mb-2">
+                        {project.title}
+                      </h3>
+                      <p className="text-sm text-text-secondary leading-relaxed mb-4">
+                        {project.description}
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {project.tags.map((tag) => (
+                          <Badge key={tag}>{tag}</Badge>
+                        ))}
+                      </div>
+                    </div>
+                  </Link>
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </motion.div>
+        </div>
+      </section>
+
+      <CTASection />
+    </>
+  );
+}

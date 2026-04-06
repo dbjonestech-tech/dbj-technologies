@@ -129,7 +129,7 @@ export default function PricingContent() {
                 </div>
 
                 <Link
-                  href="/contact"
+                  href={`/pricing/${tier.name.toLowerCase()}`}
                   className={`block w-full text-center rounded-xl py-3.5 font-semibold text-sm transition-all duration-300 ${
                     tier.popular
                       ? "bg-accent-blue text-white shadow-glow-blue hover:shadow-[0_0_50px_rgba(59,130,246,0.5)]"

@@ -28,7 +28,7 @@ export function ServicesSection() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
               >
                 <Link
-                  href="/services"
+                  href={`/services/${service.slug}`}
                   className="glass-card-hover block h-full p-8 group"
                 >
                   <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-accent-blue/10 text-accent-blue transition-colors duration-300 group-hover:bg-accent-blue/20">

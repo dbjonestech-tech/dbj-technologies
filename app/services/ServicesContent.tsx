@@ -77,9 +77,14 @@ export default function ServicesContent() {
                   </div>
                   <h2 className="font-display text-3xl font-bold mb-3">{service.title}</h2>
                   <p className="text-text-secondary leading-relaxed mb-6">{service.description}</p>
-                  <Link href="/contact" className="inline-flex items-center gap-2 text-sm font-medium text-accent-blue hover:gap-3 transition-all">
-                    Discuss Your Project <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                  </Link>
+                  <div className="flex flex-wrap items-center gap-4">
+                    <Link href={`/services/${service.slug}`} className="inline-flex items-center gap-2 text-sm font-medium text-accent-blue hover:gap-3 transition-all">
+                      Learn More <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                    </Link>
+                    <Link href="/contact" className="inline-flex items-center gap-2 text-sm font-medium text-text-secondary hover:text-white transition-all">
+                      Discuss Your Project <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                    </Link>
+                  </div>
                 </div>
                 <div className="space-y-3">
                   {service.features.map((f) => (

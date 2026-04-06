@@ -33,10 +33,29 @@ export const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
-  { label: "Websites", href: "/websites" },
+  { label: "Work", href: "/work" },
+  { label: "Process", href: "/process" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "Contact", href: "/contact" },
+] as const;
+
+/* ─── FOOTER LINKS (EXTENDED) ─────────────────────── */
+export const FOOTER_NAV_LINKS = [
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Services", href: "/services" },
+  { label: "Work", href: "/work" },
+  { label: "Process", href: "/process" },
   { label: "Pricing", href: "/pricing" },
   { label: "FAQ", href: "/faq" },
   { label: "Contact", href: "/contact" },
+] as const;
+
+/* ─── SUPPORT LINKS (FOOTER) ──────────────────────── */
+export const SUPPORT_LINKS = [
+  { label: "Maintenance & Support", href: "/maintenance-support" },
+  { label: "Why DBJ", href: "/why-dbj" },
+  { label: "FAQ", href: "/faq" },
 ] as const;
 
 /* ─── SOCIAL LINKS ──────────────────────────────────── */
@@ -58,6 +77,7 @@ export const STATS = [
 /* ─── SERVICES ──────────────────────────────────────── */
 export interface ServiceItem {
   icon: LucideIcon;
+  slug: string;
   title: string;
   tagline: string;
   description: string;
@@ -67,6 +87,7 @@ export interface ServiceItem {
 export const SERVICES: ServiceItem[] = [
   {
     icon: Globe,
+    slug: "web-development",
     title: "Web Development",
     tagline: "Pixel-perfect, blazing-fast sites",
     description:
@@ -80,6 +101,7 @@ export const SERVICES: ServiceItem[] = [
   },
   {
     icon: Smartphone,
+    slug: "mobile-applications",
     title: "Mobile Applications",
     tagline: "Native feel, cross-platform reach",
     description:
@@ -93,6 +115,7 @@ export const SERVICES: ServiceItem[] = [
   },
   {
     icon: Cloud,
+    slug: "cloud-devops",
     title: "Cloud & DevOps",
     tagline: "Scalable infrastructure that never sleeps",
     description:
@@ -106,6 +129,7 @@ export const SERVICES: ServiceItem[] = [
   },
   {
     icon: Palette,
+    slug: "ui-ux-design",
     title: "UI/UX Design",
     tagline: "Interfaces users fall in love with",
     description:
@@ -119,6 +143,7 @@ export const SERVICES: ServiceItem[] = [
   },
   {
     icon: ShoppingCart,
+    slug: "ecommerce",
     title: "E-Commerce Solutions",
     tagline: "Stores engineered to convert",
     description:
@@ -132,6 +157,7 @@ export const SERVICES: ServiceItem[] = [
   },
   {
     icon: Search,
+    slug: "seo-digital-marketing",
     title: "SEO & Digital Marketing",
     tagline: "Get found. Get chosen. Get results.",
     description:

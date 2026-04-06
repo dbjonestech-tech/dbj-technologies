@@ -1,0 +1,15 @@
+import type { Metadata } from "next";
+import MaintenanceSupportContent from "./MaintenanceSupportContent";
+
+export const metadata: Metadata = {
+  title: "Maintenance & Support",
+  description: "Keep your website fast, secure, and up-to-date with our maintenance plans. 24/7 monitoring, security updates, performance optimization, and priority support.",
+  openGraph: {
+    title: "Maintenance & Support | DBJ Technologies",
+    description: "Monthly maintenance plans starting at $299/month. Monitoring, updates, security, and priority support.",
+  },
+};
+
+export default function MaintenanceSupportPage() {
+  return <MaintenanceSupportContent />;
+}
